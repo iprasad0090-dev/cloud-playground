@@ -8,6 +8,21 @@ locals {
     2
   )
 
+  public_subnets = {
+    for idx, az in local.azs :
+    az => var.public_subnet_cidrs[idx]
+  }
+
+  private_app_subnets = {
+    for idx, az in local.azs :
+    az => var.private_app_subnet_cidrs[idx]
+  }
+
+  private_db_subnets = {
+    for idx, az in local.azs :
+    az => var.private_db_subnet_cidrs[idx]
+  }
+
   common_tags = {
     Project     = var.project_name
     Environment = var.environment

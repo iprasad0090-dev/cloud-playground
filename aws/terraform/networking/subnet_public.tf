@@ -1,19 +1,19 @@
 resource "aws_subnet" "public" {
 
-  count = length(local.azs)
+  for_each = local.public_subnets
 
   vpc_id = aws_vpc.this.id
 
-  cidr_block = var.public_subnet_cidrs[count.index]
+  availability_zone = each.key
 
-  availability_zone = local.azs[count.index]
+  cidr_block = each.value
 
   map_public_ip_on_launch = true
 
   tags = merge(
     local.common_tags,
     {
-      Name = "${local.name_prefix}-public-${count.index + 1}"
+      Name = "${local.name_prefix}-public-${each.key}"
       Tier = "Public"
     }
   )
