@@ -1,0 +1,4 @@
+aws_region = "ap-south-1"
+tenant_name = "tenant-a"
+project_name = "iSmartContainer"
+environment = "dev"

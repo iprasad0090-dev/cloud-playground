@@ -1,0 +1,13 @@
+bucket_name = "cloud-playground-example"
+
+project_name = "Cloud Playground"
+
+environment = "dev"
+
+enable_versioning = true
+
+force_destroy = false
+
+tags = {
+  Owner = "Platform Team"
+}
