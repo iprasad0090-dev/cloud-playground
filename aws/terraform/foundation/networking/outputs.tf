@@ -33,33 +33,27 @@ output "private_route_table_id" {
 output "database_route_table_id" {
   value = aws_route_table.database.id
 }
-
-output "bastion_instance_id" {
-
-  value = aws_instance.bastion.id
-
+output "vpc_cidr_block" {
+  description = "CIDR block of the VPC"
+  value       = aws_vpc.this.cidr_block
 }
 
-output "app_instance_id" {
-
-  value = aws_instance.app.id
-
+output "availability_zones" {
+  description = "Availability Zones used by the VPC"
+  value       = local.azs
 }
 
-output "bastion_public_ip" {
-
-  value = aws_instance.bastion.public_ip
-
+output "public_subnet_cidr_blocks" {
+  description = "CIDR blocks of public subnets"
+  value       = values(aws_subnet.public)[*].cidr_block
 }
 
-output "bastion_security_group_id" {
-
-  value = aws_security_group.bastion.id
-
+output "private_app_subnet_cidr_blocks" {
+  description = "CIDR blocks of private application subnets"
+  value       = values(aws_subnet.private_app)[*].cidr_block
 }
 
-output "app_security_group_id" {
-
-  value = aws_security_group.app.id
-
+output "private_db_subnet_cidr_blocks" {
+  description = "CIDR blocks of private database subnets"
+  value       = values(aws_subnet.private_db)[*].cidr_block
 }

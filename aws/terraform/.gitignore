@@ -1,20 +1,20 @@
-# macOS
-.DS_Store
-
 # Terraform
 .terraform/
+.terraform.lock.hcl
+
+# State
 *.tfstate
 *.tfstate.*
+
+# Plans
 *.tfplan
-tfplan
-crash.log
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
 
 # Local variables
 terraform.tfvars
 
-# SSH Keys
-*.pem
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
